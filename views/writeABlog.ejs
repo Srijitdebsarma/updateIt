@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Write a Blog</h3>
+    <form class="blog" method="POST" action="/blogs/new">
+        <input type="text" placeholder="Write your name" name="author">
+        <input type="text" placeholder="title of your Blog" name="title">
+        <br/>
+        <div class="text">
+            <textarea name="text" placeholder="Write your blog"></textarea>
+        </div>
+        <input type="text" name="image" placeholder="image link">
+        <br/><br/>
+        <button>Add</button>
+    </form>
+</body>
+</html>

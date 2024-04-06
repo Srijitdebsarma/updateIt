@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Blogs</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <h2>All Blogs</h2>
+    <form method="GET" action="/blogs/new">
+        <button>Write a Blog</button>
+    </form>
+    <br>
+
+    <% for(let blog of blogs){ %>
+        <div class="blog">
+            <p class="title"><b><%= blog.title %></b></p>
+            <p class="author"><i>Penned By : <%= blog.author %></i></p>
+            <div class="mainBlog">
+                <div  class="form-container">
+                    <form method="GET" action="/blogs/<%=blog._id %>/edit">
+                        <button>edit</button>
+                    </form>
+                    <form method="POST" action="/blogs/<%=blog._id %>?_method=DELETE">
+                        <button>delete</button>
+                    </form>
+                </div>
+                <p> <%= blog.text %></p>
+            </div>
+            <p>Time : <%= blog.created_at.toString().split(" ")[4] %></p>
+            <p><%= blog.created_at.toString().split(" ").slice(0,4).join("-") %></p>
+            <img src="<%=blog.image%>" height="80px" width="60px"/>
+            <form method="POST" action="/blogs/<%=blog._id %>/likes?_method=PUT">
+                <button>like <%= blog.likes %></button>
+            </form>
+            <hr>
+        </div>
+        <% } %>
+</body>
+</html>
